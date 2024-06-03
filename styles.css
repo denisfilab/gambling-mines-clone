@@ -74,6 +74,7 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
+    z-index: 2;
 }
 
 .game-canvas-behind {
@@ -81,12 +82,11 @@ body {
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
     position: absolute;
-    visibility: hidden;
     z-index: 1;
 }
 
 .grid-item-behind {
-    background-color: #304454;
+    background-color: #333559;
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -97,6 +97,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    visibility: hidden;
     transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for transform and background-color */
 }
 
@@ -163,6 +164,10 @@ input {
     font-size: 14px;
 }
 
+.mines-gems .input {
+    flex-grow: 1;
+}
+
 .profit-con {
     background-color: #202332;
     color: white;
@@ -178,6 +183,10 @@ input {
     justify-content: space-between;
     font-size: 14px;
     box-sizing: border-box;
+}
+
+.input-total {
+    display: none;
 }
 
 .profit-con img {
@@ -262,4 +271,65 @@ input[type="number"] {
     animation-delay: 0.3s;
     display: block;
     animation: expand 0.3s forwards;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #304454;
+    margin: 15% auto;
+    color: #c4c4c4;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#wallet-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+#wallet-form button {
+    background-color: #1375e0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(62, 62, 62, 0.2);
+    border-radius: 5px;
+}
+
+.grid-item img.revealed {
+    width: 2em; /* Smaller size for revealed images */
 }

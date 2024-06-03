@@ -15,7 +15,7 @@
             <h1>Mines Gambling</h1>
             <div class="wallet-container">
                 <div class="wallet-balance">
-                    <span id="balance">$50,500.00</span>
+                    <span id="balance">$0</span>
                     <img
                         src="./assets/images/Tether-USDT-icon.png"
                         alt="Currency Icon"
@@ -38,7 +38,7 @@
 
         <div class="main">
             <div class="control-panel">
-                <form>
+                <form id="settings-form">
                     <div class="input">
                         <label for="bet-amount">Bet Amount</label>
                         <div class="input-with-unit">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
 
-                    <div class="mines-gems" id="mines">
+                    <div class="mines-gems" id="mines-gems">
                         <div class="input">
                             <label for="mines">Mines</label>
                             <div class="input-with-unit">
@@ -59,53 +59,69 @@
                                     type="number"
                                     id="mines"
                                     name="mines"
+                                    min="1"
+                                    max="25"
                                     required
                                 />
+                                <!-- <img
+                                    src="./assets/images/bomb.webp"
+                                    alt="bomb"
+                                    class="icon"
+                                    width="20"
+                                /> -->
                             </div>
                         </div>
 
-                        <div class="input" id="gems">
+                        <div class="input">
                             <label for="gems">Gems</label>
                             <div class="input-with-unit">
                                 <input
                                     type="number"
                                     id="gems"
                                     name="gems"
+                                    min="1"
+                                    max="25"
                                     required
+                                />
+                                <!-- <img
+                                    src="./assets/images/gold coin.webp"
+                                    alt="gold"
+                                    class="icon"
+                                    width="20"
+                                /> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-total">
+                        <div class="input" id="total-profit">
+                            <div class="multiplier">
+                                <label for="Total Profit" id="multiplier-label"
+                                    >Total Profit
+                                    <span id="profit-in-currency"></span
+                                ></label>
+                            </div>
+                            <div class="profit-con">
+                                <span id="profit">0</span>
+                                <img
+                                    src="./assets/images/Tether-USDT-icon.png"
+                                    alt="Currency Icon"
+                                    class="currency-icon"
+                                    width="20"
                                 />
                             </div>
                         </div>
                     </div>
 
-                    <div class="input">
-                        <div class="multiplier">
-                            <label for="Total Profit" id="multiplier-label"
-                                >Total Profit
-                                <span id="profit-in-currency"></span
-                            ></label>
-                        </div>
-                        <div class="profit-con">
-                            <span id="profit">0</span>
-                            <img
-                                src="./assets/images/Tether-USDT-icon.png"
-                                alt="Currency Icon"
-                                class="currency-icon"
-                                width="20"
-                            />
-                        </div>
-                    </div>
-                    <button class="cashout" id="cashbet" type="button">
-                        Cashout
+                    <button class="cashout" id="cashbet" type="submit">
+                        Bet
                     </button>
                 </form>
             </div>
             <div class="canvas-container">
                 <div class="game-canvas">
                     <div class="grid-item">
-                        <img
-                            src="assets/images/gold coin.webp"
-                            alt="Gold Coin"
-                        />
+                        <img src="assets/images/bomb.webp" alt="Gold Coin" />
                     </div>
                     <div class="grid-item">
                         <img
@@ -144,10 +160,7 @@
                         />
                     </div>
                     <div class="grid-item">
-                        <img
-                            src="assets/images/gold coin.webp"
-                            alt="Gold Coin"
-                        />
+                        <img src="assets/images/bomb.webp" alt="Gold Coin" />
                     </div>
                     <div class="grid-item">
                         <img
@@ -180,10 +193,7 @@
                         />
                     </div>
                     <div class="grid-item">
-                        <img
-                            src="assets/images/gold coin.webp"
-                            alt="Gold Coin"
-                        />
+                        <img src="assets/images/bomb.webp" alt="Gold Coin" />
                     </div>
                     <div class="grid-item">
                         <img
@@ -204,10 +214,7 @@
                         />
                     </div>
                     <div class="grid-item">
-                        <img
-                            src="assets/images/gold coin.webp"
-                            alt="Gold Coin"
-                        />
+                        <img src="assets/images/bomb.webp" alt="Gold Coin" />
                     </div>
                     <div class="grid-item">
                         <img
@@ -405,6 +412,18 @@
                         />
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- Wallet Popup Modal -->
+        <div id="wallet-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Add Money to Wallet</h2>
+                <form id="wallet-form">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" required />
+                    <button type="submit">Add</button>
+                </form>
             </div>
         </div>
         <script src="./app.js"></script>
