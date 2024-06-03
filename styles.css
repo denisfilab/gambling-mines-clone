@@ -1,0 +1,265 @@
+* {
+    font-family: Poppins;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #252837;
+    color: white;
+    padding: 10px 200px;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
+}
+
+.wallet-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wallet-balance {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #202332;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 12px 0px rgba(62, 62, 62, 0.2);
+    border-radius: 2px;
+}
+
+.wallet-balance img {
+    margin-left: 5px;
+}
+
+.wallet-button {
+    background-color: #1375e0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px 0px rgba(62, 62, 62, 0.2);
+    height: 45px;
+    border-radius: 2px;
+}
+
+body {
+    background-color: #252837;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    margin-right: 200px;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+.canvas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #202332;
+    padding: 50px 100px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 12px 0px rgba(62, 62, 62, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.game-canvas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+
+.game-canvas-behind {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    position: absolute;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.grid-item-behind {
+    background-color: #304454;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    width: 2.7em;
+    height: 2.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for transform and background-color */
+}
+
+.grid-item-behind img {
+    width: 4em;
+    display: none;
+}
+
+.grid-item-behind:hover {
+    transform: translateY(-5px); /* Lift the item up by 10px */
+    background-color: #405565; /* Change the background color */
+}
+
+.grid-item {
+    background-color: #304454;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    width: 2.7em;
+    height: 2.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for transform and background-color */
+}
+
+.grid-item:hover {
+    transform: translateY(-5px); /* Lift the item up by 10px */
+    background-color: #405565; /* Change the background color */
+}
+
+.grid-item img {
+    width: 4em;
+    display: none;
+}
+
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    background-color: #304454;
+    width: 400px;
+    max-width: 400px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 12px 0px rgba(62, 62, 62, 0.2);
+    color: #c4c4c4;
+}
+
+.input {
+    margin-top: 10px;
+}
+
+input {
+    background-color: #202332;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%; /* Make the input span to the right */
+    box-sizing: border-box; /* Include padding and border in the total width */
+    height: 40px;
+    font-size: 14px;
+}
+
+.profit-con {
+    background-color: #202332;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%; /* Make the input span to the right */
+    box-sizing: border-box; /* Include padding and border in the total width */
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.profit-con img {
+    margin-left: 10px;
+    width: 20px;
+}
+
+.mines-gems {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cashout {
+    margin-top: 20px;
+    background-color: #f5c118;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove spinner in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Animation wise */
+/* Add keyframes for collapse and expand animations */
+@keyframes collapse {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes expand-one {
+    0% {
+        transform: scale(1);
+        opacity: 100%;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 70%;
+    }
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Apply the collapse animation to grid items when clicked */
+.grid-item.collapsed {
+    animation: collapse 0.5s ease-in-out;
+}
+
+.grid-item.expand-one {
+    animation: expand-one 0.3s forwards;
+}
+
+/* Apply the expand animation to images inside grid items when clicked */
+.grid-item img.expanded {
+    animation-delay: 0.3s;
+    display: block;
+    animation: expand 0.3s forwards;
+}

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mines Gambling</title>
+        <link rel="stylesheet" href="./styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <h1>Mines Gambling</h1>
+            <div class="wallet-container">
+                <div class="wallet-balance">
+                    <span id="balance">$50,500.00</span>
+                    <img
+                        src="./assets/images/Tether-USDT-icon.png"
+                        alt="Currency Icon"
+                        class="currency-icon"
+                        width="20"
+                    />
+                </div>
+                <button class="wallet-button">Wallet</button>
+            </div>
+
+            <div class="statistic">
+                <img
+                    src="./assets/images/statistic.png"
+                    alt="Statistic"
+                    width="20"
+                    href="./statistic.html"
+                />
+            </div>
+        </nav>
+
+        <div class="main">
+            <div class="control-panel">
+                <form>
+                    <div class="input">
+                        <label for="bet-amount">Bet Amount</label>
+                        <div class="input-with-unit">
+                            <input
+                                type="number"
+                                id="bet-amount"
+                                name="bet-amount"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mines-gems" id="mines">
+                        <div class="input">
+                            <label for="mines">Mines</label>
+                            <div class="input-with-unit">
+                                <input
+                                    type="number"
+                                    id="mines"
+                                    name="mines"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div class="input" id="gems">
+                            <label for="gems">Gems</label>
+                            <div class="input-with-unit">
+                                <input
+                                    type="number"
+                                    id="gems"
+                                    name="gems"
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input">
+                        <div class="multiplier">
+                            <label for="Total Profit" id="multiplier-label"
+                                >Total Profit
+                                <span id="profit-in-currency"></span
+                            ></label>
+                        </div>
+                        <div class="profit-con">
+                            <span id="profit">0</span>
+                            <img
+                                src="./assets/images/Tether-USDT-icon.png"
+                                alt="Currency Icon"
+                                class="currency-icon"
+                                width="20"
+                            />
+                        </div>
+                    </div>
+                    <button class="cashout" id="cashbet" type="button">
+                        Cashout
+                    </button>
+                </form>
+            </div>
+            <div class="canvas-container">
+                <div class="game-canvas">
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                </div>
+
+                <div class="game-canvas-behind">
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                    <div class="grid-item-behind">
+                        <img
+                            src="assets/images/gold coin.webp"
+                            alt="Gold Coin"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./app.js"></script>
+    </body>
+</html>
