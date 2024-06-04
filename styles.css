@@ -2,6 +2,8 @@
     font-family: Poppins;
 }
 
+
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -48,6 +50,7 @@
 body {
     background-color: #252837;
     margin: 0;
+    
 }
 
 .main {
@@ -140,7 +143,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #304454;
-    width: 400px;
+    min-width: 200px;
     max-width: 400px;
     padding: 10px 20px 10px 20px;
     border-radius: 5px;
@@ -330,6 +333,176 @@ input[type="number"] {
     border-radius: 5px;
 }
 
+.profit-modal {
+    z-index: 1000;
+    position: absolute;
+    top: 47.5%;
+    width: 196px;
+    height: 120px;
+    box-sizing: border-box;
+    display: none;
+}
+
+
+.modal-profit-content {
+    /* Positioning and display */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    /* Dimensions */
+    width: 80%;
+    max-width: 150px;
+    padding: 20px;
+
+    /* Styling */
+    color: #f5c118;
+    text-align: center;
+    background-color: #304454;
+
+    /* Border */
+    border: 3px solid #f5c118;
+    border-radius: 5px;
+
+    /* Shadow */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px 10px 20px;
+}
+
+
+
+.modal-profit-content h2 {
+    margin: 0;
+    font-size: 30px;
+}
+.modal-profit-content h3{
+    margin: 0;
+    font-size: 16px;
+}
+
+#line {
+    border-top: 3px solid #c4c4c4; /* Change color as needed */
+    width: 30%;
+    margin: 10px; /* Adjust space above and below the line */
+}
+
+.cashout-profit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+}
+
+
+.cashout-profit span {
+    color: #f5c118
+} 
+
+.cashout-profit img {
+    width: 20px;
+    margin-left: 10px;
+}
+
 .grid-item img.revealed {
     width: 2em; /* Smaller size for revealed images */
+}
+
+
+@media (max-width: 1296px){
+    body {
+        
+    }
+
+    .navbar h1, .statistic {
+        display: none;
+    }
+
+
+    .main {
+        flex-direction: column-reverse;
+    }
+
+    .grid-item {
+        width: 5vw;
+        height: 5vw;
+        min-width: 92px;
+        min-height: 92px;
+        box-sizing: border-box;
+    }
+
+    .grid-item-behind {
+        width: 5vw;
+        height: 5vh;
+        min-width: 92px;
+        min-height: 92px;
+        box-sizing: border-box;
+    }
+
+    .grid-item img {
+        width: 2em;
+    }
+
+    .canvas-container {
+        min-width: 572px;
+    }
+
+
+    .control-panel {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        min-width: 572px;
+    }
+
+    #settings-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: center
+    }
+
+    .mines-gems {
+        margin-left: 10px;
+        flex-grow: 1;
+        width: 51%;
+    }
+
+    .input-total {
+        width: 50%;
+    }
+
+    .input {
+        flex-grow: 1;
+    }
+
+    .mines-gems .input {
+        width: 100%;
+    }
+
+    .profit-modal {
+        top: 37%;
+    }
+    
+
+}
+
+@media (max-width: 500px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+
+    .canvas-container {
+        min-width: fit-content;
+        max-width: fit-content;
+    }
+
+    
 }

@@ -98,8 +98,10 @@
                             <div class="multiplier">
                                 <label for="Total Profit" id="multiplier-label"
                                     >Total Profit
-                                    <span id="profit-in-currency"></span
-                                ></label>
+                                    <span id="profit-in-currency"
+                                        >0$</span
+                                    ></label
+                                >
                             </div>
                             <div class="profit-con">
                                 <span id="profit">0</span>
@@ -119,7 +121,22 @@
                 </form>
             </div>
             <div class="canvas-container">
+                <div class="profit-modal">
+                    <div class="modal-profit-content">
+                        <div class="cashout-profit">
+                            <h2 id="multiplier-text">3.36</h2>
+                            <span class="close-button" id="multipler-x">&times;</span>   
+                        </div>
+                      
+                        <div id="line"></div>
+                        <div class="cashout-profit">
+                            <h3 id="profit-text">$ 2000</h3>
+                            <img src="assets/images/Tether-USDT-icon.png">
+                        </div>
+                    </div>
+                </div>
                 <div class="game-canvas">
+          
                     <div class="grid-item">
                         <img src="assets/images/bomb.webp" alt="Gold Coin" />
                     </div>
@@ -426,6 +443,9 @@
                 </form>
             </div>
         </div>
+
+       
+
         <script src="./app.js"></script>
     </body>
 </html>

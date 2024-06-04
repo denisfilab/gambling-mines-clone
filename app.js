@@ -109,19 +109,30 @@ const multiplierList = [
     numberOf25Mines,
 ];
 
+
 document.addEventListener("DOMContentLoaded", () => {
-    const gridItems = document.querySelectorAll(".grid-item");
-    const gridItemsBehind = document.querySelectorAll(".grid-item-behind");
+    gridItems = document.querySelectorAll(".grid-item");
+    gridItemsBehind = document.querySelectorAll(".grid-item-behind");
     let trapFound = false;
-    const totalProfitSpan = document.getElementById("profit");
-    const betButton = document.getElementById("cashbet");
-    betAmount = parseFloat(document.getElementById("bet-amount").value);
+    let totalProfitSpan = document.getElementById("profit");
+    let betButton = document.getElementById("cashbet");
+    let betAmount = parseFloat(document.getElementById("bet-amount").value);
+    let onBet = false;
+    let haveCashout = false;
 
     // Add click event listener to each grid item
     gridItems.forEach((item, index) => {
         item.addEventListener("click", () => {
+            betButton = document.getElementById("cashbet");
+            if (onBet == false || haveCashout) {
+                return;
+            }
+            const img = item.querySelector("img");
             if (trapFound || item.classList.contains("clicked")) {
                 return;
+            }
+            if (img.src.includes("bomb.webp")) {
+                trapFound = true;
             }
             item.classList.add("clicked");
             item.classList.add("expand-one");
@@ -145,6 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     trapFound = true;
                     const audio = new Audio("assets/sounds/what.MP3");
                     audio.play();
+                    document.getElementsByClassName("input-total")[0].style.display =
+                    "none";
+                    betButton = document.getElementById("cashbet");
+                    betButton.innerText = "Bet";
+
                     setTimeout(() => {
                         revealAllItems(index);
                         return;
@@ -154,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const audio = new Audio("assets/sounds/coin.MP3");
                     audio.play();
                     multiplier = updateMultiplier(multiplierList);
+                    betAmount = parseFloat(document.getElementById("bet-amount").value);
                     betAmount = parseFloat(
                         document.getElementById("bet-amount").value
                     );
@@ -167,43 +184,53 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("form").addEventListener("submit", (event) => {
         event.preventDefault();
         // Call the randomizeGrid function with the values of the "mines" and "gems" fields
-        document.getElementsByClassName("input-total")[0].style.display =
-            "block";
         if (betButton.innerText === "Cashout") {
-            cashout();
+            // Make sure if not single tiles clicked, then cant cashout
+            if(document.querySelectorAll(".grid-item.clicked").length == 0){
+                return;
+            } else {
+                cashout();
+            }
+           
         } else {
             placeBet();
         }
     });
 
     function placeBet() {
+        // Add validation bet amount cannot exceed balance
+        trapFound = false;
+        const balance = parseFloat(
+            document.getElementById("balance").textContent.replace(/[^0-9.-]+/g, "")
+        )
+        console.log("placeBet");
+        betAmount = parseFloat(document.getElementById("bet-amount").value);
+        if (betAmount > balance) {
+            alert("Bet amount cannot exceed balance");
+            return;
+        }
+        document.getElementById("balance").innerText = `$${(balance - betAmount).toFixed(2)}`;        console.log("placeBet");
         const mines = parseInt(document.getElementById("mines").value);
         const gems = parseInt(document.getElementById("gems").value);
+        document.getElementsByClassName("profit-modal")[0].style.display = "none";
         resetGame();
         document.getElementsByClassName("input-total")[0].style.display =
             "block";
+
+        onBet = true;
+
+        // Call the randomizeGrid function
         randomizeGrid(mines, gems);
         betButton.innerText = "Cashout";
+        haveCashout = false;
     }
 
-    function cashout() {
-        betButton.innerText = "Bet";
-        alert(
-            `You cashed out with a profit of $${(
-                multiplier * betAmount
-            ).toFixed(2)}`
-        );
-        resetGame();
-        document.getElementsByClassName("input-total")[0].style.display =
-            "none";
-        multiplier = 1;
-        updateProfitDisplay();
-    }
+
 
     function updateMultiplier(multiplierList) {
         const mines = parseInt(document.getElementById("mines").value);
         const gemsRevealed =
-            document.querySelectorAll(".grid-item.clicked").length;
+        document.querySelectorAll(".grid-item.clicked").length;
         multiplier = multiplierList[mines - 1][gemsRevealed - 1];
         return multiplier + 1;
     }
@@ -211,9 +238,35 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateProfitDisplay(multiplier, betAmount) {
         console.log(multiplier);
         console.log(betAmount);
+        document.getElementById("multiplier-label").innerHTML = `Total Profit (${updateMultiplier(multiplierList).toFixed(2)}<span>&times;</span>)`;        
         totalProfitSpan.innerText = (multiplier * betAmount).toFixed(2);
         console.log(totalProfitSpan.innerText);
         console.log(multiplier * betAmount);
+    }
+
+    function cashout() {
+        betButton.innerText = "Bet";
+        trapFound = false;
+        document.getElementsByClassName("input-total")[0].style.display =
+            "none";
+        // Update Balance
+        betAmount = parseFloat(document.getElementById("bet-amount").value);
+        amount = parseFloat((betAmount * updateMultiplier(multiplierList)).toFixed(2));
+        const balanceElement = document.getElementById("balance");
+        let currentBalance = parseFloat(
+            balanceElement.textContent.replace(/[^0-9.-]+/g, "")
+        );
+        console.log(`betAmount: ${betAmount}, amount: ${amount}, balanceElement: ${balanceElement.textContent}, multiplier: ${updateMultiplier(multiplierList).toFixed(2)}`);
+        currentBalance += amount;
+        balanceElement.textContent = `$${currentBalance.toFixed(2)}`;
+        showProfitModalDisplay();
+        resetGame();
+
+        // Update Total Profit Label
+        document.getElementById("multiplier-label").innerHTML = `Total Profit`;        
+        totalProfitSpan.innerText = 0;
+        haveCashout = true;
+        
     }
 
     // Event listener for mines form
@@ -265,9 +318,21 @@ document.addEventListener("DOMContentLoaded", () => {
             balanceElement.textContent = `$${currentBalance.toFixed(2)}`;
             walletModal.style.display = "none";
         });
+
+    document.getElementsByClassName("close-button")[0].addEventListener("click", () => {
+        walletModal.style.display = "none";
+    });
+
+    function showProfitModalDisplay() {
+        betAmount = parseFloat(document.getElementById("bet-amount").value);
+        const profitModal = document.getElementsByClassName("profit-modal")[0];
+        profitModal.style.display = "block";
+        document.getElementById("multiplier-text").innerText =  updateMultiplier(multiplierList);
+        document.getElementById("profit-text").innerText = `$${(updateMultiplier(multiplierList) * betAmount).toFixed(2)}`;    }
+    
 });
 
-function randomizeGrid(mines, gems) {
+function randomizeGrid(mines) {
     const gridItems = document.querySelectorAll(".grid-item img");
     const totalItems = gridItems.length;
     const images = Array(totalItems).fill("assets/images/gold coin.webp");
@@ -302,7 +367,7 @@ function resetGame() {
     });
 }
 
-function revealAllItems(clickedIndex) {
+function revealAllItems() {
     const gridItems = document.querySelectorAll(".grid-item");
     const gridItemsBehind = document.querySelectorAll(".grid-item-behind");
 
