@@ -358,7 +358,7 @@ function resetGame() {
         item.style.opacity = 1;
         item.classList.remove("clicked", "collapsed", "expand-one");
         const img = item.querySelector("img");
-        img.style.width = "4em";
+        img.style.width = "";
         img.classList.remove("expanded");
         gridItemsBehind[index].style.visibility = "hidden";
         gridItemsBehind[index].style.zIndex = 1;
@@ -377,7 +377,7 @@ function revealAllItems() {
             return;
         }
         item.classList.add("clicked");
-        img.style.width = "2.6em";
+        img.classList.add("revealed");
         item.classList.add("expand-one");
         setTimeout(() => {
             item.classList.remove("expand-one");
