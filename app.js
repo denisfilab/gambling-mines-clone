@@ -308,6 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document
         .getElementById("wallet-form")
         .addEventListener("submit", (event) => {
+            event.preventDefault();
             const amount = parseInt(document.getElementById("amount").value);
             const balanceElement = document.getElementById("balance");
             let currentBalance = parseFloat(
