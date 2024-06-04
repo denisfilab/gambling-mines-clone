@@ -161,6 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     betButton = document.getElementById("cashbet");
                     betButton.innerText = "Bet";
 
+
+                    document.getElementById("multiplier-label").innerHTML = `Total Profit`;        
+                    totalProfitSpan.innerText = 0;
                     setTimeout(() => {
                         revealAllItems(index);
                         return;
