@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Check if the clicked item is a bomb
                 if (img.src.includes("bomb.webp")) {
                     trapFound = true;
-                    const audio = new Audio("assets/sounds/what.MP3");
+                    const audio = new Audio("assets/sounds/what.mp3");
                     audio.play();
                     document.getElementsByClassName("input-total")[0].style.display =
                     "none";
@@ -308,7 +308,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document
         .getElementById("wallet-form")
         .addEventListener("submit", (event) => {
-            event.preventDefault();
             const amount = parseInt(document.getElementById("amount").value);
             const balanceElement = document.getElementById("balance");
             let currentBalance = parseFloat(
