@@ -277,7 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const mines = parseInt(event.target.value);
         const gemsField = document.getElementById("gems");
 
-        // Subtract the value of the "mines" input from 25 and set the result as the value of the "gems" field
         gemsField.value = 25 - mines;
     });
 
@@ -285,7 +284,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const gems = parseInt(event.target.value);
         const minesField = document.getElementById("mines");
 
-        // Subtract the value of the "mines" input from 25 and set the result as the value of the "gems" field
         minesField.value = 25 - gems;
     });
 

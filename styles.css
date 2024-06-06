@@ -502,6 +502,12 @@ input[type="number"] {
         padding: 10px 40px 10px 40px;
     }
 
+
+    .modal-content {
+        width: 70vw;
+        margin: 10% 8.6%;
+    }
+
     .main {
         margin: 0;
         width: 100vw;
